@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data>
+
+        <record id="account_details_form_view" model="ir.ui.view">
+            <field name="name">account details form view</field>
+            <field name="model">account.details</field>
+            <field name="arch" type="xml">
+                <form string="Account Information">
+                    <group>
+                        <field name="name"/>
+                        <field name="account_holder_name"/>
+                        <field name="bank_id"/>
+                        <field name="account_holder_ids"/>
+                        <field name="account_holder_image"/>
+                        <field name="accountopening_date"/>
+                        <field name="account_type"/>
+                        <field name="card_type"/>
+                        <field name="total_balance"/>
+                        <field name="description"/>
+                        <field name="start_date"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="account_details_list_view" model="ir.ui.view">
+            <field name="name">account details list view</field>
+            <field name="model">account.details</field>
+            <field name="arch" type="xml">
+                <tree string="Account Information">
+                    <field name="name"/>
+                    <field name="account_holder_name"/>
+                    <field name="account_type"/>
+                    <field name="card_type"/>
+                    <field name="total_balance"/>
+                </tree>
+            </field>
+        </record>
+
+          <record id="account_search_view" model="ir.ui.view">
+            <field name="name">account details search</field>
+            <field name="model">account.details</field>
+            <field name="arch" type="xml">
+                    <search>
+                        <field name="account_holder_name"/>
+                        <field name="card_type"/>
+                    </search>
+            </field>
+        </record>
+
+
+        <record id="account_search_view_calendar" model="ir.ui.view">
+            <field name="name">calendar</field>
+            <field name="model">account.details</field>
+            <field name="arch" type="xml">
+                <calendar string="Session Calendar" date_start="start_date">
+                    <field name="name"/>
+                </calendar>
+            </field>
+        </record>
+
+
+
+        <record id="action_account_details" model="ir.actions.act_window">
+            <field name="name">Account</field>
+            <field name="res_model">account.details</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar</field>
+
+        </record>
+
+        <menuitem id="account_mgmt_root" name="Account Management"/>
+
+        <menuitem id="account_management_config" name="Account Config" parent="account_mgmt_root"/>
+
+        <menuitem id="account_mgmt_menu" name="account" action="action_account_details"
+                  parent="account_management_config"/>
+
+
+    </data>
+</flectra>

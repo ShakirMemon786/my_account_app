@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data>
+
+        <record id="bank_name_form_view" model="ir.ui.view">
+            <field name="name">bank name form view</field>
+            <field name="model">bank.name</field>
+            <field name="arch" type="xml">
+                <form string="Bank Information">
+                    <group>
+                        <field name="name"/>
+                        <field name="ifsc_code"/>
+                        <field name="account_type"/>
+                        <field name="account_line">
+                            <tree string="Information">
+                                <field name="name"/>
+                                <field name="account_holder_name"/>
+                            </tree>
+                        </field>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="bank_name_list_view" model="ir.ui.view">
+            <field name="name">bank name list view</field>
+            <field name="model">bank.name</field>
+            <field name="arch" type="xml">
+                <tree string="Bank Information">
+                        <field name="name"/>
+                        <field name="ifsc_code"/>
+                        <field name="account_type"/>
+                </tree>
+            </field>
+        </record>
+
+
+         <record id="action_bank_name" model="ir.actions.act_window">
+            <field name="name">Banks</field>
+            <field name="res_model">bank.name</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+
+        </record>
+
+        <menuitem id="account_mgmt_bank_menu" name="Banks" action="action_bank_name"
+                  parent="account_management_config"/>
+
+    </data>
+</flectra>
