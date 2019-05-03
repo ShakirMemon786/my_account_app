@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data>
+
+        <record id="account_holder_form_view" model="ir.ui.view">
+            <field name="name">account holder form view</field>
+            <field name="model">account.holder</field>
+            <field name="arch" type="xml">
+                <form string="Account Holder Information">
+                    <group>
+                        <field name="name"/>
+                        <field name="accountdetail_ids"/>
+                        <field name="total_accounts"/>
+                    </group>
+
+                    <group>
+                        <button name="count_total_accounts" type="object" string="Count Account"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="account_holder_list_view" model="ir.ui.view">
+            <field name="name">account holder list view</field>
+            <field name="model">account.holder</field>
+            <field name="arch" type="xml">
+                <tree string="Accounts Holder Information">
+                        <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+
+         <record id="action_account_holder" model="ir.actions.act_window">
+            <field name="name">Account Holder</field>
+            <field name="res_model">account.holder</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+
+        </record>
+
+        <menuitem id="account_mgmt_holder_menu" name="Account Holder" action="action_account_holder"
+                  parent="account_management_config"/>
+
+    </data>
+</flectra>
