@@ -37,13 +37,20 @@ class BankName(models.Model):
 
     _name = "bank.name"
 
+    @api.multi
+    @api.depends('account_line')
+    def _compute_total_accounts(self):
+        for accounts in self:
+            print("LEN----------", len(accounts.account_line))
+            accounts.total_accounts = len(accounts.account_line)
+
     name = fields.Char(string="Bank Name", required=True)
     ifsc_code = fields.Char(string="IFSC CODE",size=4)
     account_line = fields.One2many("account.details", 'bank_id', string = "Accounts", readonly="True")
     active = fields.Boolean(string="Active", default=True)
     account_type = fields.Selection([('savings', 'Savings'),
                                      ('current', 'Current')], string="Account Type")
-    #total_accounts = fields.Integer(string="Total Accounts in Bank", compute=_compute_total_accounts, store=True)
+    total_accounts = fields.Integer(string="Total Accounts in Bank", compute=_compute_total_accounts, store=True)
 
 
 class AccountHolder(models.Model):
