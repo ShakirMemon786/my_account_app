@@ -11,6 +11,7 @@
                         <field name="name"/>
                         <field name="ifsc_code"/>
                         <field name="account_type"/>
+                        <field name="total_accounts"/>
                         <field name="account_line">
                             <tree string="Information">
                                 <field name="name"/>
@@ -30,6 +31,7 @@
                 <tree string="Bank Information">
                         <field name="name"/>
                         <field name="ifsc_code"/>
+                        <field name="total_accounts"/>
                         <field name="account_type"/>
                 </tree>
             </field>
